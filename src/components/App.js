@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
 import Header from './Header';
 import './../styles/App.css';
 import RangoList from './RangoList';
-import logo from './../logo.svg';
 import CreateRangos from './CreateRango';
 import { Route, Routes } from 'react-router-dom';
 import halo from '../styles/halo.jpg';

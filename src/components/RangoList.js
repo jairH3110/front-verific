@@ -1,7 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Rango from './Rango';
+
 
 const FEED_QUERY = gql`
 
@@ -40,10 +39,10 @@ const RangoList = () => {
     
         <tr key={rango.id}>
           <div> <div class="div">
-          <img class="imagenes" src={rango.origen} />
+          <img class="imagenes" src={rango.origen} alt="se necesita como el usci" /> 
        <td>{rango.faccion} <td></td>{rango.raza}  {rango.rango} <td> {rango.caracteristicas} 
        <td>{rango.peligrosidad} {rango.representantes} {rango.especialidad} {rango.antiguedad}</td> </td>  </td>
-       <img class="imagenes" src={rango.origen} />
+       <img class="imagenes" src={rango.origen} alt="se necesita para el jale" />
        </div> </div> 
         
       
