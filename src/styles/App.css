@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+#lol{
+  background-image: "./halo.jpg";
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +37,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.div{
+  display: flex;
+  overflow: hidden;
+  transition: 4s;
+  background-color: #143634;
+}
+
+td{
+  text-align: center;
+  font-style: oblique;
+  font-size: x-large;
 }

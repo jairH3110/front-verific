@@ -123,7 +123,7 @@ const CreateRangos = () => {
               })
             }
             type="text"
-            placeholder="The raza for the link"
+            placeholder="The caracteristicas for the link"
           />
 
 
@@ -138,7 +138,7 @@ const CreateRangos = () => {
               })
             }
             type="text"
-            placeholder="The raza for the link"
+            placeholder="The peligrosidad for the link"
           />
 
 
@@ -153,7 +153,7 @@ const CreateRangos = () => {
               })
             }
             type="text"
-            placeholder="The raza for the link"
+            placeholder="The representantes for the link"
           />
 
 
@@ -169,7 +169,7 @@ const CreateRangos = () => {
               })
             }
             type="text"
-            placeholder="The raza for the link"
+            placeholder="The origen for the link"
           />
 
 
@@ -185,7 +185,7 @@ const CreateRangos = () => {
               })
             }
             type="text"
-            placeholder="The raza for the link"
+            placeholder="The especialidad for the link"
           />
 
 
@@ -201,7 +201,7 @@ const CreateRangos = () => {
               })
             }
             type="text"
-            placeholder="The raza for the link"
+            placeholder="The antiguedad for the link"
           />
 
 

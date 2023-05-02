@@ -5,12 +5,13 @@ import RangoList from './RangoList';
 import logo from './../logo.svg';
 import CreateRangos from './CreateRango';
 import { Route, Routes } from 'react-router-dom';
+import halo from '../styles/halo.jpg';
 
 const App = () => {
   return (
-    <div className="center w85">
+    <div  style={{ backgroundImage: `url(${halo})` }} >
       <Header />
-      <div className="ph3 pv1 background-gray">
+      <div >
         <Routes>
           <Route path="/" element={<RangoList/>} />
           <Route
