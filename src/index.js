@@ -13,7 +13,6 @@ import {
   InMemoryCache
 } from '@apollo/client';
 
-// 2
 const httpLink = createHttpLink({
   uri:  'http://localhost:8000/graphql/'
 });
@@ -33,3 +32,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
+
+
