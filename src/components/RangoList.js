@@ -16,6 +16,7 @@ query{
     origen
     especialidad
     antiguedad
+    comentarios
   
   }
 }
@@ -43,6 +44,7 @@ const RangoList = () => {
        <td>{rango.faccion} <td></td>{rango.raza}  {rango.rango} <td> {rango.caracteristicas} 
        <td>{rango.peligrosidad} {rango.representantes} {rango.especialidad} {rango.antiguedad}</td> </td>  </td>
        <img class="imagenes" src={rango.origen} alt="se necesita para el jale" />
+       <p>{rango.comentarios}</p>
        </div> </div> 
         
       

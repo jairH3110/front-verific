@@ -12,9 +12,10 @@ mutation PostMutation(
     $representantes: String!
     $origen: String!
     $especialidad: String! 
-    $antiguedad: String!    
+    $antiguedad: String! 
+    $comentarios: String!   
     ){ 
-        createRango(faccion: $faccion, raza: $raza, rango: $rango, caracteristicas: $caracteristicas, peligrosidad: $peligrosidad, representantes: $representantes, origen: $origen, especialidad: $especialidad, antiguedad: $antiguedad ){
+        createRango(faccion: $faccion, raza: $raza, rango: $rango, caracteristicas: $caracteristicas, peligrosidad: $peligrosidad, representantes: $representantes, origen: $origen, especialidad: $especialidad, antiguedad: $antiguedad, comentarios: $comentarios,  ){
             id
         faccion
         raza
@@ -25,6 +26,7 @@ mutation PostMutation(
         origen
         especialidad
         antiguedad
+        comentarios
       
       }
     }
@@ -40,7 +42,8 @@ const CreateRangos = () => {
     representantes:'',
     origen:'',
     especialidad:'',
-    antiguedad:''
+    antiguedad:'',
+    comentarios:''
   });
 
 
@@ -54,7 +57,8 @@ const CreateRangos = () => {
       representantes: formState.representantes,
       origen: formState.origen,
       especialidad: formState.especialidad,
-      antiguedad: formState.antiguedad
+      antiguedad: formState.antiguedad,
+      comentarios: formState.comentarios
     }
   });
 
@@ -191,6 +195,7 @@ const CreateRangos = () => {
 
 
 
+
 <input
             className="mb2"
             value={formState.antiguedad}
@@ -206,6 +211,18 @@ const CreateRangos = () => {
 
 
 
+<input
+            className="mb2"
+            value={formState.comentarios}
+            onChange={(e) =>
+              setFormState({
+                ...formState,
+                comentarios: e.target.value
+              })
+            }
+            type="text"
+            placeholder="The comentarios for the link"
+          />
 
         </div>
         <button type="submit">Submit</button>
