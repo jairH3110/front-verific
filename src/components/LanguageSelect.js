@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 
 const languageMap = {
@@ -9,14 +9,11 @@ const languageMap = {
 };
 
 const LanguageSelect = () => {
-  const selected = localStorage.getItem("i18nextLng") || "en";
-  const { t } = useTranslation();
+ // const selected = localStorage.getItem("i18nextLng") || "en";
+ // const { t } = useTranslation();
 
-  const [menuAnchor, setMenuAnchor] = React.useState(null);
+ // const [menuAnchor, setMenuAnchor] = React.useState(null);
 
-  React.useEffect(() => {
-     document.body.dir = languageMap[selected].dir;
-  }, [menuAnchor, selected]);
 
   function changeLang(value) {
     //alert(value);
