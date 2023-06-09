@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
-
 import { BrowserRouter } from 'react-router-dom';
-
+import './i89nextConf'
 // 1
 import {
   ApolloProvider,

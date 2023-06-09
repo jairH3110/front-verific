@@ -1,8 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
+class ServiceVar {
 
-class Serviceimg {
-
-  async getimg(data) {
+  async getvar(data) {
     const configuration = new Configuration({
         apiKey: "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",
       });
@@ -42,17 +41,25 @@ class Serviceimg {
 
     
       try {
-        const response=await openai.createImage({
-            prompt: `${data.d}`,
-            n: 2,
-            size: "1024x1024",
-        })
+        const response=await openai.retrieveModel(`${data.d}`)
         // res.status(200).json({ result: completion.data.choices[0].text });
+        
+        let a =  ""
+        a = "Nombre:"+response.data.id + "Id de creacion:"+ response.data.created + "Creada por:" + response.data.owned_by +"Es un:"+ response.data.object
+        console.log(a)
         return {
             status: 200,
-            result: response.data.data[0].url
+            result: a
         }
-      } catch(error) {
+       
+
+
+
+      } 
+      
+      
+      
+      catch(error) {
         // Consider adjusting the error handling logic for your use case
         if (error.response) {
           console.error(error.response.status, error.response.data);
@@ -82,4 +89,4 @@ class Serviceimg {
     
 }
 
-export default new Serviceimg();
+export default new ServiceVar();

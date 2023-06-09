@@ -1,12 +1,15 @@
 import { Configuration, OpenAIApi } from "openai";
 
-class ServiceDavinci003 {
+class ServiceEdit {
 
-  async getDaVinci(data) {
+  async getEdit(data) {
     const configuration = new Configuration({
         apiKey: "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",
       });
+
       const openai = new OpenAIApi(configuration);
+      
+      
       console.log(configuration);
       console.log(data.objeto, data.word);
       if (!configuration.apiKey) {
@@ -58,13 +61,20 @@ class ServiceDavinci003 {
               }
           };
         }
-      
+
         try {
-          const completion = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: this.generatePrompt(objectname, objectn),
-            temperature: 0.6,
+          const completion = await openai.createEdit({
+            model: "text-davinci-edit-001",
+            input:  `${data.objeto}` ,
+            instruction: `${data.word}`,
+            temperature: 0.2,
+
           });
+
+          console.log("hola")
+          console.log(completion.data.choices[0].text)
+          console.log("hola2")
+
           // res.status(200).json({ result: completion.data.choices[0].text });
           return {
               status: 200,
@@ -97,11 +107,7 @@ class ServiceDavinci003 {
         }
     }
   
-      generatePrompt(objectname, objectn) {
-          return `sugiereme tres nombre acerca de "${objectname}" y que esten relacionados a la palabra "${objectn}"
-          el formato de la respuesta debe ser como el siguiente: "name1, name2, name3"`;
-          
-      }
+  
   }
   
-  export default new ServiceDavinci003();
+  export default new ServiceEdit();

@@ -1,27 +1,14 @@
 import { useState } from "react";
+import ServiceVar from "../services/service.imagenvar"
 
-import ServiceDavinci003 from "../services/service.davinci-003"
-
-
-
-
-export default function Textdavinci003() {
-  const [objetoInput, setobjetoInput] = useState("");
- 
-  const [wordInput, setwordInput] = useState("");
+export default function Variacionesss() {
+  const [descripcionInput, setdescripcionInput] = useState("");
   const [result, setResult] = useState();
 
-
-  const today = new Date();
-  var now = today.toLocaleString();
-  console.log(now)
-
- 
- 
   async function onSubmit(event) {
     event.preventDefault();
     try {
-      const response = await ServiceDavinci003.getDaVinci({ objeto: objetoInput, word: wordInput  });
+      const response = await ServiceVar.getvar({ d: descripcionInput});
       /*const response = await fetch("/text-davinci-003/generate", {
         method: "POST",
         headers: {
@@ -37,8 +24,7 @@ export default function Textdavinci003() {
       }
       console.log("response", response);
       setResult(data.result);
-      setobjetoInput("");
-      setwordInput("");
+      setdescripcionInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -46,37 +32,26 @@ export default function Textdavinci003() {
     }
   }
 
-
-
-
   return (
     <div>
         <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+       
 
       <main >
-        <h3>tipo de objeto</h3>
-        <form onSubmit={onSubmit }>
-        <h3>tipo de objeto</h3>
+        <h3>Generar imagenes</h3>
+        <form onSubmit={onSubmit}>
+        <h3>QUE QUIERES?</h3>
           <input
             type="text"
-            name="objeto"
-            placeholder="Enter an object"
-            value={objetoInput}
-            onChange={(e) => setobjetoInput(e.target.value)}
+            name="descripcion input"
+            placeholder="Enter an descipcion"
+            value={descripcionInput}
+            onChange={(e) => setdescripcionInput(e.target.value)}
           />
-          <h3>palabra relacionado</h3>
-          <input
-            type="text"
-            name="word"
-            placeholder="Enter an word"
-            value={wordInput}
-            onChange={(e) => setwordInput(e.target.value) }
-          />
-          <input type="submit" value="Generate names"  />
+          <input type="submit" value="Generate names" />
 
         </form>
-        <div style={{
+      <div style={{
           textAlign: "center",
           maxWidth: "950px",
           margin: "0 auto",

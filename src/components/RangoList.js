@@ -23,6 +23,8 @@ query{
 `
 
 
+
+
 const RangoList = () => {
   
   const {data} = useQuery(FEED_QUERY);

@@ -1,12 +1,14 @@
 import { Configuration, OpenAIApi } from "openai";
 
-class Serviceimg {
+class ServiceMod {
 
-  async getimg(data) {
+  async getlol(dato) {
     const configuration = new Configuration({
         apiKey: "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",
       });
-    const openai = new OpenAIApi(configuration);
+    
+    
+      const openai = new OpenAIApi(configuration);
     if (!configuration.apiKey) {
         /*
         res.status(500).json({
@@ -23,7 +25,7 @@ class Serviceimg {
         };
       }
     
-      const imgdescripcion = data.d || '';
+      const imgdescripcion = dato.d || '';
       if (imgdescripcion.trim().length === 0) {
         /*
         res.status(400).json({
@@ -42,23 +44,27 @@ class Serviceimg {
 
     
       try {
-        const response=await openai.createImage({
-            prompt: `${data.d}`,
-            n: 2,
-            size: "1024x1024",
+        const response=await openai.createModeration({
+            input: `${dato.d}`,
+         
         })
-        // res.status(200).json({ result: completion.data.choices[0].text });
+        console.log("hola")
+      let a =""
+      a = response.data.result
+        console.log(a)
+        console.log("hola2")
+        // res.status(200).json({ result: completion.dato.choices[0].text });
         return {
             status: 200,
-            result: response.data.data[0].url
+            result: response.data.results[0]
         }
       } catch(error) {
         // Consider adjusting the error handling logic for your use case
         if (error.response) {
-          console.error(error.response.status, error.response.data);
-          // res.status(error.response.status).json(error.response.data);
+          console.error(error.response.status, error.response.dato);
+          // res.status(error.response.status).json(error.response.dato);
           return {
-            status: error.response.data
+            status: error.response.dato
           }
         } else {
           console.error(`Error with OpenAI API request: ${error.message}`);
@@ -82,4 +88,4 @@ class Serviceimg {
     
 }
 
-export default new Serviceimg();
+export default new ServiceMod();

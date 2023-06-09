@@ -1,27 +1,16 @@
 import { useState } from "react";
 
-import ServiceDavinci003 from "../services/service.davinci-003"
+import ServiceChat from "../services/service.chat"
 
-
-
-
-export default function Textdavinci003() {
+export default function Chat() {
   const [objetoInput, setobjetoInput] = useState("");
- 
   const [wordInput, setwordInput] = useState("");
   const [result, setResult] = useState();
 
-
-  const today = new Date();
-  var now = today.toLocaleString();
-  console.log(now)
-
- 
- 
   async function onSubmit(event) {
     event.preventDefault();
     try {
-      const response = await ServiceDavinci003.getDaVinci({ objeto: objetoInput, word: wordInput  });
+      const response = await ServiceChat.getChat({ objeto: objetoInput, word: wordInput  });
       /*const response = await fetch("/text-davinci-003/generate", {
         method: "POST",
         headers: {
@@ -29,7 +18,7 @@ export default function Textdavinci003() {
         },
         body: JSON.stringify({ animal: animalInput }),
       });*/
-
+     
       const data = await response;
       console.log(response);
       if (response.status !== 200) {
@@ -46,9 +35,6 @@ export default function Textdavinci003() {
     }
   }
 
-
-
-
   return (
     <div>
         <title>OpenAI Quickstart</title>
@@ -56,7 +42,7 @@ export default function Textdavinci003() {
 
       <main >
         <h3>tipo de objeto</h3>
-        <form onSubmit={onSubmit }>
+        <form onSubmit={onSubmit}>
         <h3>tipo de objeto</h3>
           <input
             type="text"
@@ -71,9 +57,9 @@ export default function Textdavinci003() {
             name="word"
             placeholder="Enter an word"
             value={wordInput}
-            onChange={(e) => setwordInput(e.target.value) }
+            onChange={(e) => setwordInput(e.target.value)}
           />
-          <input type="submit" value="Generate names"  />
+          <input type="submit" value="Generate names" />
 
         </form>
         <div style={{

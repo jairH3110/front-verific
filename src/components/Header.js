@@ -1,10 +1,26 @@
 import React from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { AUTH_TOKEN } from '../constans';
+import { useTranslation } from "react-i18next";
+import LanguageSelect from "./LanguageSelect";
+
+
+
+
 
 const Header = () => {
+ 
+  
+  
+  const { t } = useTranslation();
+
+
   const navigate = useNavigate();
+
+
   const authToken = localStorage.getItem(AUTH_TOKEN);
+  console.log("hola xd")
+  console.log(authToken)
   return (
     <div className="flex pa1 justify-between nowrap orange" >
       <div className="flex flex-fixed black">
@@ -31,7 +47,41 @@ const Header = () => {
           <div className="ml1">|</div>
         <li>
               <Link to="/imagenes" className="no-underline black">
-                IA-imagenes
+                IA-img
+              </Link>
+            </li>
+
+          <div className="ml1">|</div>
+        <li>
+              <Link to="/moderador" className="no-underline black">
+                IA-Mod
+              </Link>
+            </li>
+
+
+          <div className="ml1">|</div>
+        <li>
+              <Link to="/editor" className="no-underline black">
+                IA-Edit
+              </Link>
+            </li>
+            
+            <li>
+              <Link to="/chat" className="no-underline black">
+                IA-chat
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/variacion" className="no-underline black">
+                IA-lista
+              </Link>
+            </li>
+
+
+            <li>
+              <Link to="/filtador" className="no-underline black">
+                seacrh
               </Link>
             </li>
 
@@ -44,6 +94,22 @@ const Header = () => {
           </div>
         )}
       </div>
+
+
+      <div className="flex flex-fixed">
+       <div className="ml1 pointer black">
+         {t('select_language')}
+      </div>
+      <div className="ml1 pointer black"> : </div>
+      <div>     
+        <LanguageSelect className="ml1 pointer black"/>
+      </div>
+     </div>
+
+
+
+
+
       <div className="flex flex-fixed">
         {authToken ? (
           <div
